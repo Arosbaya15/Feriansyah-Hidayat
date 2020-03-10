@@ -71,6 +71,31 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -364,8 +389,8 @@
               
                 
                 
-                <h1 id="selamat-datang-di-halaman-web-feriansyah-hidayat">Selamat Datang Di Halaman Web Feriansyah Hidayat</h1>
-<h2 id="profil-singkat"><strong>Profil Singkat</strong></h2>
+                <h1 id="selamat-datang-di-halaman-web-feriansyah-hidayat">Selamat Datang Di Halaman Web Feriansyah Hidayat<a class="headerlink" href="#selamat-datang-di-halaman-web-feriansyah-hidayat" title="Permanent link">&para;</a></h1>
+<h2 id="profil-singkat"><strong>Profil Singkat</strong><a class="headerlink" href="#profil-singkat" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Nama : Feriansyah Hidayat</li>
 <li>NIM : 180411100025</li>
@@ -439,6 +464,10 @@
       <script src="assets/javascripts/application.df00da5d.js"></script>
       
       <script>app.initialize({version:"1.1",url:{base:"."}})</script>
+      
+        <script src="javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
