@@ -546,30 +546,36 @@ dimana <em><span><span class="MathJax_Preview">i</span><script type="math/tex">i
 <h2 id="tugas-pemrograman">Tugas Pemrograman<a class="headerlink" href="#tugas-pemrograman" title="Permanent link">&para;</a></h2>
 <p>Buatlah program untuk menyelesaikan persamaan differensial biasa berikut dengan metode Euler
 $$
-\frac{dy}{dx} = 1+x^{2}, y(1)=-4</p>
-<p>$$
+\frac{dy}{dx} = 1+x^{2}, y(1)=-4
+$$
 Untuk menentukan <em><span><span class="MathJax_Preview">y(1.01), y(1.02), y(1.03)</span><script type="math/tex">y(1.01), y(1.02), y(1.03)</script></span></em></p>
 <h3 id="listing-program">Listing Program<a class="headerlink" href="#listing-program" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f(x,y)=1+x^2&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yi+1 = y1 + hf(xi+yi)&quot;</span><span class="p">)</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan x1= &quot;</span><span class="p">))</span>
-<span class="n">x2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan x2= &quot;</span><span class="p">))</span>
 
-<span class="n">h</span> <span class="o">=</span> <span class="mf">1.01</span><span class="o">-</span><span class="n">x1</span> <span class="c1">#Langsung diatur sendiri karena yang dicari f(x,y) nilai x-nya=1.01</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">4</span> <span class="c1">#jumlah x ada 4 yaitu 1, 1.01, 1.02, 1.03</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="n">xi</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">hasil</span> <span class="o">=</span> <span class="n">xi</span>
 <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hasil dari y&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;= &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hasil</span><span class="p">))</span>
-    <span class="n">hasil</span> <span class="o">=</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;keterangan = h:&quot;</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="s2">&quot;, y:&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;, x:&quot;</span><span class="p">,</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">hasil</span> <span class="o">=</span> <span class="n">xi</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">x0</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Langkah - &quot;</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot; = &quot;</span><span class="p">,</span><span class="n">xi</span><span class="p">,</span><span class="s2">&quot;+&quot;</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="s2">&quot;* ( 1 + (&quot;</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="s2">&quot;+&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;)^2 )&quot;</span><span class="p">)</span>
     <span class="n">y</span><span class="o">+=</span><span class="n">h</span>
     <span class="n">xi</span><span class="o">=</span><span class="n">hasil</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hasil dari y&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;= &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hasil</span><span class="p">))</span>
 </code></pre></div>
 
 
-<p>dari listing program diatas terdapat variabel <em><span><span class="MathJax_Preview">x_{1}</span><script type="math/tex">x_{1}</script></span></em> adalah <em><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></em> awal dan <em><span><span class="MathJax_Preview">x_{2}</span><script type="math/tex">x_{2}</script></span></em> adalah <em><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></em> akhir. </p>
-<p><em><span><span class="MathJax_Preview">x_{i}</span><script type="math/tex">x_{i}</script></span></em> adalah hasil awal yang kemudian akan dimassukkan pada proses iterasi. Karena rumus eurel adalah <em><span><span class="MathJax_Preview">y_{1}= y_{0}+h(f(x,y))</span><script type="math/tex">y_{1}= y_{0}+h(f(x,y))</script></span></em> maka rumus barunya adalah <em><span><span class="MathJax_Preview">y_{1}=y_{0}+h(1+x^{2})</span><script type="math/tex">y_{1}=y_{0}+h(1+x^{2})</script></span></em>. Variabel y digunakan untuk penambahan nilai <em><span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></em> agar selalu bertambah <em><span><span class="MathJax_Preview">0.01</span><script type="math/tex">0.01</script></span></em></p>
+<p>Penjelasan:</p>
+<p>h = 0.01</p>
+<p>xi = -4 dimana di soal tertulis y = -4</p>
+<p>x0 = 1 dimana x0 adalah x awal</p>
+<p>hasil = x1 dimana hasil pertama kali yaitu x1 dan x1 = -4 , jadi hasil pertama kali -4</p>
+<p>y = 0 adalah inisialisasi awal yang nantinya akan ditambah dengan x0 (x awal) dan berkelanjutan</p>
+<p>di ulang sebanyak 4 dengan langkah yang sudah dijelaskan</p>
                 
                   
                 
